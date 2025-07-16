@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 // MongoDB Connection
-mongoose.connect('mongodb://127.0.0.1:27017/blueneza', {
+mongoose.connect('mongodb+srv://abhi:<db_password>@cluster0.hlefiai.mongodb.net/blue?retryWrites=true&w=majority&appName=Cluster0', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
