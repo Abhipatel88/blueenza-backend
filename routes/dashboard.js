@@ -10,15 +10,9 @@ router.get('/stats', authMiddleware, async (req, res) => {
   try {
     const totalQuotes = await Quote.countDocuments();
     const totalContacts = await Contact.countDocuments();
-    const pendingQuotes = await Quote.countDocuments({ status: 'pending' });
-    const pendingContacts = await Contact.countDocuments({ status: 'pending' });
-    
-    res.json({
-      totalQuotes,
-      totalContacts,
-      pendingQuotes,
-      pendingContacts
-    });
+    const totalemail = totalQuotes + totalContacts;
+
+    res.json({ totalQuotes, totalContacts , totalemail });
   } catch (error) {
     res.status(500).json({ message: 'Server error' });
   }
